@@ -45,7 +45,7 @@ assert_success 24 60 12
 echo "=== 異常系のテスト開始 ==="
 assert_error 3            # 引数が少ない
 assert_error 2 4 6          # 引数が多い
-assert_error文字 4        # 引数に文字が含まれる
+assert_error 文字 4        # 引数に文字が含まれる
 assert_error 12 2.5         # 引数に小数が含まれる
 assert_error -5 10          # 負の数
 assert_error 0 5            # 0（自然数ではない）
