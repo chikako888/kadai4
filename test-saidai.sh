@@ -9,13 +9,13 @@ assert_success() {
     local num2=$2
     local expected=$3
     
-    result=$(./gcd.sh "$num1" "$num2" 2>/dev/null)
+    result=$(./saidai.sh "$num1" "$num2" 2>/dev/null)
     status=$?
     
     if [ $status -eq 0 ] && [ "$result" = "$expected" ]; then
-        echo "SUCCESS: ./gcd.sh $num1 $num2 -> $result"
+        echo "SUCCESS: ./saidai.sh $num1 $num2 -> $result"
     else
-        echo "ERROR: ./gcd.sh $num1 $num2 (Expected: $expected, Got: $result, Status: $status)" >&2
+        echo "ERROR: ./saidai.sh $num1 $num2 (Expected: $expected, Got: $result, Status: $status)" >&2
         failed=1
     fi
 }
@@ -25,13 +25,13 @@ assert_error() {
     local args=("$@")
     
     # 引数をそのままスクリプトに渡して実行
-    output=$(./gcd.sh "${args[@]}" 2>&1)
+    output=$(./saidai.sh "${args[@]}" 2>&1)
     status=$?
     
     if [ $status -ne 0 ] && [ -n "$output" ]; then
-        echo "SUCCESS (Error Caught): ./gcd.sh ${args[*]} -> Status: $status, Message: $output"
+        echo "SUCCESS (Error Caught): ./saidai.sh ${args[*]} -> Status: $status, Message: $output"
     else
-        echo "ERROR (Expected Error): ./gcd.sh ${args[*]} did not fail correctly. (Status: $status)" >&2
+        echo "ERROR (Expected Error): ./saidai.sh ${args[*]} did not fail correctly. (Status: $status)" >&2
         failed=1
     fi
 }

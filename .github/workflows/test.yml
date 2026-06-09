@@ -4,13 +4,16 @@ on: [push]
 
 jobs:
   test-execution:
+    name: Use Linux commands
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Run test script
-        run: |
-          chmod +x gcd.sh test.sh
-          ./test.sh
+      - name: Permission Setting
+        # 新しいファイル名に変更し、実行権限を与えます
+        run: chmod +x saidai.sh test-saidai.sh
+      - name: Test Run
+        # 新しいテストスクリプトを実行します
+        run: ./test-saidai.sh
